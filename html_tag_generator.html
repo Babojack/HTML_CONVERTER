@@ -15,7 +15,7 @@
   }
 
   form {
-    max-width: 600px;
+    max-width: 2000px;
     margin: 0 auto;
     background-color: white;
     padding: 20px;
@@ -65,6 +65,8 @@
   .output textarea {
     height: 200px;
     font-size: 16px;
+    height: 1000px;
+    width: 1017px;
   }
 
   .output button {
@@ -99,6 +101,7 @@
 			<p>Text:</p>
 			<textarea id="text"></textarea>
 		</label>
+    <button type="button" onclick="addLine()">Add Line</button>
 		<label>
 			<p>Suchen und Ersetzen:</p>
 			<input type="text" id="search" placeholder="Suchen...">
@@ -142,7 +145,7 @@ function generateHTML() {
   var output = document.createElement("div");
   output.classList.add("output");
 
-  var textarea = document.createElement("textarea");
+  var textarea = document.createElement("textarea" );
   textarea.setAttribute("readonly", true);
   textarea.setAttribute("onclick", "this.select()");
 
@@ -191,4 +194,9 @@ function removeGeneratedHTML() {
   }
   outputElements = [];
 }
+function addLine() {
+  var text = document.getElementById("text");
+  text.value += "-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-\n";
+}
+
 	</script>
