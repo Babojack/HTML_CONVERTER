@@ -70,6 +70,7 @@ function addLine() {
     "-_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_--_-\n";
 }
 
+
 function generateHTML() {
   let style = document.getElementById("style").value;
   let text = document.getElementById("text").value;
@@ -94,6 +95,15 @@ function generateHTML() {
   closeButton.addEventListener("click", function () {
     document.body.removeChild(output);
   });
+
+  let downloadButton = document.createElement("a");
+  downloadButton.innerText = "Download";
+  downloadButton.setAttribute("href", "data:text/html;charset=utf-8," + encodeURIComponent(textarea.value));
+  downloadButton.setAttribute("download", "generated.html");
+  downloadButton.classList.add("download");
+
+
+
 
   let searchDiv = document.createElement("div");
   let searchInput = document.createElement("input");
@@ -149,4 +159,5 @@ function generateHTML() {
   output.appendChild(closeButton);
   document.body.appendChild(output);
   outputElements.push(output);
+  output.appendChild(downloadButton);
 }
